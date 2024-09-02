@@ -2,7 +2,9 @@
 import { useContext, useState } from "react";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { CartContexts } from "../contexts/CartContexts";
-import { Container, NavLink } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 const initialValues = {
     name: "",
@@ -52,25 +54,29 @@ export const Cart = () => {
             <h1>{item.title}</h1>
             <img src={item.image} alt={item.title}/>
             <p>{item.quantity}</p>
-            <button onClick={() => removeItem(item.id)}>eliminar</button>
+            <Button variant="dark" type="button" onClick={() => removeItem(item.id)}>
+            Eliminar
+            </Button>
             </div>
             );
         })}
-        <form>
-            <div>
-                <label>Nombre</label>
-                <input type="text" placeholder="Ingresa tu nombre" name="name" onChange={handleChange} />
-            </div>
-            <div>
-                <label>Email</label>
-                <input type="email" placeholder="Ingresa tu email" name="email" onChange={handleChange} />
-            </div>
-            <div>
-                <label>Telefono</label>
-                <input type="text" placeholder="Ingresa tu telefono" name="phone" onChange={handleChange} />
-            </div>
-            <button type="button" onClick={sendOrder}>Comprar</button> <button onClick={reset}>vaciar</button>
-        </form>
+        <Form>
+      <Form.Group className="mb-3" controlId="formBasicNombre">
+        <Form.Label>Nombre</Form.Label>
+        <Form.Control value={buyer.name} type="text" placeholder="Ingresa tu nombre" name="name" onChange={handleChange} />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Email</Form.Label>
+        <Form.Control value={buyer.email} type="email" placeholder="Ingresa tu email" name="email" onChange={handleChange} />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Telefono</Form.Label>
+        <Form.Control value={buyer.phone} type="text" placeholder="Ingresa tu telefono" name="phone" onChange={handleChange} />
+      </Form.Group>
+      <Button variant="dark" type="button" onClick={sendOrder}>
+        Comprar
+      </Button>
+    </Form>
         <div>Total {total}</div>
         
         </Container>

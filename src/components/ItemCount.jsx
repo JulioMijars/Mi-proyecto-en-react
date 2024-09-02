@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Container } from "react-bootstrap";
+import Button from 'react-bootstrap/Button';
 
 
 export const ItemCount = ({ stock, onAdd }) => {
@@ -16,12 +18,15 @@ export const ItemCount = ({ stock, onAdd }) => {
 
     return (
     <>
-    <div>
-     <button onClick={handleIncrease}>agregar</button>
+    <Container>
+    <Button variant="dark" onClick={handleIncrease}>Agregar</Button>
+    <br />
      <span>{count}</span>
-     <button onClick={handleDecrease}>eliminar</button>
-    </div>
-    <button onClick={handleAdd}>comprar</button>
+     <br />
+     <Button variant="dark" onClick={handleDecrease}>Eliminar</Button>
+    </Container>
+    <br />
+    <Button variant="dark" onClick={handleAdd}>comprar</Button>
     </>
     )
 };

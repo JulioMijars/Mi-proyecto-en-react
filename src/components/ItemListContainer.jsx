@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { getFirestore, getDocs, where, query, collection } from 'firebase/firestore';
 
-import { CardBody } from 'react-bootstrap';
 
 export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
