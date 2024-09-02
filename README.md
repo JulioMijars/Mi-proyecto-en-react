@@ -30,3 +30,16 @@ Sigue estos pasos para ejecutar el proyecto localmente:
 
 Clona el repositorio:
 
+git clone https://github.com/JulioMijars/Mi-proyecto-en-react.git
+cd TecnoMar
+
+Instala las dependencias:
+npm install
+
+Inicia la aplicación:
+npm run dev
+
+Gracias.
+
+
+
